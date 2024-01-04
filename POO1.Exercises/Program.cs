@@ -24,6 +24,7 @@ namespace POO1.Exercises
             {
                 var options = Menu.GenerateOptions(exercises.Length);
                 exercises[Menu.DisplayMenu(options, Title.TitleExercises())].Execute();
+                Menu.WaitInput();
             }
         }
     }

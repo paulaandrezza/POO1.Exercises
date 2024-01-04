@@ -42,7 +42,6 @@ namespace POO1.Exercises.Exercises
                         Console.WriteLine($"{temperature} °F é igual a {result} °C.");
                         break;
                 }
-                Menu.WaitInput();
             } catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());

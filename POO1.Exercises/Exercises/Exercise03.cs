@@ -27,7 +27,6 @@ namespace POO1.Exercises.Exercises
                         Menu.WaitInput();
                     }
                 }
-                Menu.WaitInput();
             }
             catch (Exception ex)
             {
