@@ -85,6 +85,7 @@ namespace POO1.Exercises.UI
         {
             Console.WriteLine("\nDigite qualquer tecla para continuar...");
             Console.ReadKey();
+            Console.Clear();
         }
 
         public static int DisplayMenu(string[] options, string? title = null)

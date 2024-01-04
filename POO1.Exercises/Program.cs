@@ -20,9 +20,11 @@ namespace POO1.Exercises
                 new Exercise09(),
                 new Exercise10(),
             ];
-
-            var options = Menu.GenerateOptions(exercises.Length);
-            exercises[Menu.DisplayMenu(options, Title.TitleExercises())].Execute();
+            while (true)
+            {
+                var options = Menu.GenerateOptions(exercises.Length);
+                exercises[Menu.DisplayMenu(options, Title.TitleExercises())].Execute();
+            }
         }
     }
 }
