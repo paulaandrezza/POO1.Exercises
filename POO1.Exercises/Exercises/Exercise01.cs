@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POO1.Exercises.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,10 @@ namespace POO1.Exercises.Exercises
     {
         public override void Execute()
         {
-            throw new NotImplementedException();
+            int selected;
+            string[] options = { "Celsius para Fahrenheit", "Fahrenheit para Celsius" };
+            selected = Menu.DisplayMenu(options);
+            Console.WriteLine(selected);
         }
     }
 }

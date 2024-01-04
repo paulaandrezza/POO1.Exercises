@@ -1,6 +1,5 @@
 ﻿using POO1.Exercises.Exercises;
 using POO1.Exercises.UI;
-using TaskManager;
 
 namespace POO1.Exercises
 {
@@ -8,8 +7,8 @@ namespace POO1.Exercises
     {
         static void Main(string[] args)
         {
-            Exercise[] exercises = new Exercise[]
-            {
+            Exercise[] exercises =
+            [
                 new Exercise01(),
                 new Exercise02(),
                 new Exercise03(),
@@ -20,23 +19,10 @@ namespace POO1.Exercises
                 new Exercise08(),
                 new Exercise09(),
                 new Exercise10(),
-            };
+            ];
 
-            Console.WriteLine(Title.TitleExercises());
-            ShowMenu(exercises.Length);
-        }
-
-        private static void ShowMenu(int lenghtItems)
-        {
-            Menu options = new Menu(lenghtItems);
-
-            while (true)
-            {
-                Console.Clear();
-                int selected = options.ShowMenu(Title.TitleExercises());
-                if (selected >= 0 && selected <= lenghtItems)
-                    break;
-            }
+            var options = Menu.GenerateOptions(exercises.Length);
+            exercises[Menu.DisplayMenu(options, Title.TitleExercises())].Execute();
         }
     }
 }

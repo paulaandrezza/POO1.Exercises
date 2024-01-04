@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaskManager
+namespace POO1.Exercises.UI
 {
     internal class Menu
     {
-        private readonly int lenghtItems;
+        private readonly string[] items;
         private int selectedIndex;
 
-        public Menu(int menuItems)
+        public Menu(string[] menuItems)
         {
-            lenghtItems = menuItems;
+            items = menuItems;
             selectedIndex = 0;
         }
 
@@ -42,7 +42,7 @@ namespace TaskManager
                 Console.CursorVisible = true;
             }
 
-            Console.WriteLine($"\nOpção selecionada: Exercício {selectedIndex+1:00}\n");
+            Console.WriteLine($"\nOpção selecionada: {items[selectedIndex]}\n");
             return selectedIndex;
         }
 
@@ -55,12 +55,12 @@ namespace TaskManager
 
             Console.WriteLine("\nSelecione uma opção: \n");
 
-            for (int i = 0; i < lenghtItems; i++)
+            for (int i = 0; i < items.Length; i++)
             {
                 Console.ForegroundColor = (i == selectedIndex) ? ConsoleColor.Black : ConsoleColor.Gray;
                 Console.BackgroundColor = (i == selectedIndex) ? ConsoleColor.Gray : ConsoleColor.Black;
 
-                Console.WriteLine($"Exercício {i+1:00}");
+                Console.WriteLine($"{items[i]}");
 
                 Console.ResetColor();
             }
@@ -77,7 +77,7 @@ namespace TaskManager
                     break;
 
                 case ConsoleKey.DownArrow:
-                    selectedIndex = Math.Min(lenghtItems - 1, selectedIndex + 1);
+                    selectedIndex = Math.Min(items.Length - 1, selectedIndex + 1);
                     break;
             }
         }
@@ -85,6 +85,31 @@ namespace TaskManager
         {
             Console.WriteLine("\nDigite qualquer tecla para continuar...");
             Console.ReadKey();
+        }
+
+        public static int DisplayMenu(string[] options, string? title = null)
+        {
+            int selected;
+            Menu menu = new Menu(options);
+
+            while (true)
+            {
+                Console.Clear();
+                selected = menu.ShowMenu(title);
+                if (selected >= 0 && selected <= options.Length)
+                    break;
+            }
+
+            return selected;
+        }
+
+        public static string[] GenerateOptions(int lengthItems)
+        {
+            string[] options = new string[lengthItems];
+            for (int i = 0; i < lengthItems; i++)
+                options[i] = $"Exercicio {i + 1:00}";
+
+            return options;
         }
     }
 }
