@@ -25,9 +25,7 @@ namespace POO1.Exercises
                 var options = Menu.GenerateOptions(exercises.Length);
                 int option = Menu.DisplayMenu(options, Title.TitleExercises());
                 if (option == exercises.Length)
-                {
                     break;
-                }
                 exercises[option].Execute();
                 Menu.WaitInput();
             }
