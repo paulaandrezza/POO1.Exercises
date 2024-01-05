@@ -106,9 +106,11 @@ namespace POO1.Exercises.UI
 
         public static string[] GenerateOptions(int lengthItems)
         {
-            string[] options = new string[lengthItems];
+            string[] options = new string[lengthItems + 1];
             for (int i = 0; i < lengthItems; i++)
                 options[i] = $"Exercicio {i + 1:00}";
+
+            options[lengthItems] = "Sair";
 
             return options;
         }

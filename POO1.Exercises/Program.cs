@@ -23,7 +23,12 @@ namespace POO1.Exercises
             while (true)
             {
                 var options = Menu.GenerateOptions(exercises.Length);
-                exercises[Menu.DisplayMenu(options, Title.TitleExercises())].Execute();
+                int option = Menu.DisplayMenu(options, Title.TitleExercises());
+                if (option == exercises.Length)
+                {
+                    break;
+                }
+                exercises[option].Execute();
                 Menu.WaitInput();
             }
         }
